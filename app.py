@@ -15,11 +15,12 @@ app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY', 'a_default_fallback_sec
 REACT_APP_PORT = os.getenv('REACT_APP_PORT', '5173')
 REACT_APP_ORIGIN = f"http://localhost:{REACT_APP_PORT}"
 REACT_APP_ORIGIN_IP = f"http://127.0.0.1:{REACT_APP_PORT}"
+REACT_DEPLOYED = "https://syntax-frontend-nine.vercel.app"
 
 socketio = SocketIO(
     app,
     async_mode='threading',
-    cors_allowed_origins=[REACT_APP_ORIGIN, REACT_APP_ORIGIN_IP]
+    cors_allowed_origins=[REACT_APP_ORIGIN, REACT_APP_ORIGIN_IP, REACT_DEPLOYED]
 )
 
 ada_instance = None
