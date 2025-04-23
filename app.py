@@ -3,6 +3,8 @@ import os
 from dotenv import load_dotenv
 import asyncio
 import threading
+import eventlet
+eventlet.monkey_patch()
 from flask import Flask, render_template, request # Make sure request is imported
 from flask_socketio import SocketIO, emit
 
@@ -19,7 +21,7 @@ REACT_DEPLOYED = "https://syntax-frontend-nine.vercel.app"
 
 socketio = SocketIO(
     app,
-    async_mode='threading',
+    async_mode='eventlet',
     cors_allowed_origins=[REACT_APP_ORIGIN, REACT_APP_ORIGIN_IP, REACT_DEPLOYED]
 )
 
