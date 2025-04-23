@@ -16,3 +16,4 @@ eventlet # Recommended async mode for Flask-SocketIOs
 google.genai 
 google 
 numpy
+gunicorn
